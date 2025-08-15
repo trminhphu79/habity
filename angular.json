@@ -13,7 +13,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "hbt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
@@ -126,10 +126,43 @@
           }
         }
       }
+    },
+    "habity-uis": {
+      "projectType": "library",
+      "root": "projects/habity-uis",
+      "sourceRoot": "projects/habity-uis/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/habity-uis/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/habity-uis/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/habity-uis/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
-    "schematicCollections": ["@ionic/angular-toolkit"]
+    "schematicCollections": [
+      "@ionic/angular-toolkit"
+    ],
+    "analytics": false
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

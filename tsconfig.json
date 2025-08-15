@@ -7,6 +7,11 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "strict": true,
+    "paths": {
+      "habity-uis": [
+        "./dist/habity-uis"
+      ]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -26,5 +31,13 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/habity-uis/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/habity-uis/tsconfig.spec.json"
+    }
+  ]
 }
