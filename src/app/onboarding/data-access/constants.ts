@@ -10,7 +10,6 @@ export const ONBOADRING_STEPS = {
 }
 
 
-
 export const ONBOARDING_STEPS_METADATA: OnboardingStep[] = [
     {
         id: OnboardingStepEnum.First,

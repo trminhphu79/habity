@@ -9,6 +9,10 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
   },
   {
+    path: ROUTERS.ACCOUNT,
+    loadChildren: () => import('./account/account.routes').then(m => m.default),
+  },
+  {
     path: ROUTERS.EXPLORE,
     canMatch: [authCanActiveGuard],
     loadComponent: () => import('./explore/explore.component').then(m => m.ExploreComponent),

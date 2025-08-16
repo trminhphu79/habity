@@ -1,3 +1,4 @@
-<p>
-  icon-button works!
-</p>
+<button (click)="onClick.emit()"
+  class="pointer p-4 border-1 border-solid border-gray-600 rounded-lg flex items-center justify-center {{classes()}}">
+  <ng-content></ng-content>
+</button>

@@ -1,32 +1,27 @@
-import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
+import { NgComponentOutlet } from '@angular/common';
 import { Component, DestroyRef, inject, signal, Type } from '@angular/core';
-import { IonButton, IonSpinner } from "@ionic/angular/standalone";
-import { ButtonComponent } from '@habity-uis/components/button/button.component';
-import { IonIcon } from '@ionic/angular/standalone';
-import { CardActionComponent } from '@habity-uis/components/card-action/card-action.component';
 import { LoginProviderEnum, OnboardingStepEnum } from '../../data-access/enums';
 import { ONBOARDING_STEPS_METADATA } from '../../data-access/constants';
 import { StepDotsComponent } from '@habity-uis/components/step-dots/step-dots.component';
-import { skip, takeUntil, timer } from 'rxjs';
+import { skip, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { OnboardingActionsComponent } from '../../uis/onboarding-actions/onboarding-actions.component';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'hbt-onboarding-flow',
   templateUrl: './onboarding-flow.component.html',
   styleUrls: ['./onboarding-flow.component.scss'],
   imports: [NgComponentOutlet,
-    IonIcon,
-    CardActionComponent,
-    IonSpinner,
-    ButtonComponent,
-    NgTemplateOutlet,
-    IonButton,
-    StepDotsComponent
+    StepDotsComponent,
+    OnboardingActionsComponent
   ],
 })
 export class OnboardingFlowComponent {
 
-  readonly onboardingSteps = OnboardingStepEnum;
   readonly loginProvider = LoginProviderEnum;
+  readonly onboardingSteps = OnboardingStepEnum;
   readonly componentMapped: Record<OnboardingStepEnum, Type<Component> | null> = {
     [OnboardingStepEnum.First]: null,
     [OnboardingStepEnum.Second]: null,
@@ -37,7 +32,9 @@ export class OnboardingFlowComponent {
   readonly currentComponent = signal<Type<Component> | null>(null);
   readonly onboardingStepMetadata = signal(ONBOARDING_STEPS_METADATA);
 
-  readonly destroyRef = inject(DestroyRef)
+  readonly router = inject(Router);
+  readonly destroyRef = inject(DestroyRef);
+
   constructor() {
     this.initlizeSteps();
   }
@@ -47,9 +44,9 @@ export class OnboardingFlowComponent {
   }
 
   private autoChangeStep() {
-  timer(0, 3000)
+    timer(0, 3000)
       .pipe(
-        skip(1), // Skip the first emission to avoid immediate change
+        skip(1),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(() => {
@@ -82,9 +79,11 @@ export class OnboardingFlowComponent {
   }
 
   protected loginWith(provider: LoginProviderEnum) {
+    console.log(`Logging in with ${provider}...`);
     switch (provider) {
       case LoginProviderEnum.Email:
         console.log('Logging in with Email...');
+        this.router.navigate(['/account'], { queryParams: { provider: LoginProviderEnum.Email } });
         break;
       case LoginProviderEnum.Google:
         console.log('Logging in with Google...');

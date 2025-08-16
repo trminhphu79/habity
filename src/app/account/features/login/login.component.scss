@@ -1,0 +1,19 @@
+:host {
+    background: var(--white-100) !important;
+}
+
+ion-content {
+    --background: var(--white-100) !important;
+    background: var(--white-100) !important;
+}
+
+ion-header {
+    --background: var(--white-100) !important;
+    --ion-background-color-step-50: var(--white-100) !important;
+    --ion-text-color: var(--black-100) !important;
+    color: var(--white-80) !important;
+
+    --min-height: 80px;
+}
+
+ion-toolbar {}

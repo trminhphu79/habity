@@ -3,7 +3,10 @@ export const ROUTERS = {
     ACCOUNT_CREATION: 'account-creation',
     HOME: 'home',
     EXPLORE: 'explore',
-    AUTH: 'auth',
+    ACCOUNT: 'account',
     SHELL: 'shell',
     ROOT: '',
+    LOGIN: 'account/login',
+    SIGNUP: 'account/sign-up',
+    CREATION_FLOW: 'account/creation-flow',
 }

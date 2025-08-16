@@ -1,0 +1,12 @@
+:host {
+    button {
+        padding: 15px;
+        border-radius: 16px !important;
+        border: 1px solid var(--white-10);
+        background: var(--white-50);
+
+        &:focus {
+            background: var(--white-10);
+        }
+    }
+}
