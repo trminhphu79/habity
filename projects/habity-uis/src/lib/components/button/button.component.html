@@ -1,3 +1,10 @@
-<p>
-  button works!
-</p>
+<button class="btn {{classes()}} {{size()}} {{type()}}" (click)="onClick.emit()">
+  <span class="left"><ng-content select="[left]"></ng-content></span>
+  <span class="center">
+    <ng-content select="[center]"></ng-content>
+    <span>
+      {{ label() }}
+    </span>
+  </span>
+  <span class="right"><ng-content select="[right]"></ng-content></span>
+</button>

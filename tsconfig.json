@@ -8,9 +8,15 @@
     "esModuleInterop": true,
     "strict": true,
     "paths": {
+      "@habity-uis/*": [
+        "./projects/habity-uis/src/lib/*"
+      ],
       "habity-uis": [
         "./dist/habity-uis"
-      ]
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -23,8 +29,11 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "useDefineForClassFields": false
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "useDefineForClassFields": false,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -39,5 +48,5 @@
     {
       "path": "./projects/habity-uis/tsconfig.spec.json"
     }
-  ]
+  ],
 }

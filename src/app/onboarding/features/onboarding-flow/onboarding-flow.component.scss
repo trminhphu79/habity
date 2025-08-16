@@ -1,0 +1,23 @@
+:host {
+    width: 100%;
+    height: 100%;
+    background: var(--main-gradient) !important;
+    background-image: url('../../../../assets/images/circel-bg.png');
+}
+
+.onboarding-flow {
+    background-image: url('../../../../assets/images/circel-bg.png');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+
+}
+
+@media screen and (max-width: 768px) {
+    .onboarding-flow {
+        background-size: 80%;
+    }
+}

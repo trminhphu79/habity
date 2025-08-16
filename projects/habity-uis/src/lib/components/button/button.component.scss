@@ -1,0 +1,73 @@
+.btn {
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 6px 12px;
+    width: 240px;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+
+    &:disabled {
+        opacity: 0.75;
+        cursor: not-allowed;
+    }
+
+    &.primary {
+        background: var(--blue-100);
+        color: var(--white-100);
+
+        &:focus {
+            background: var(--blue-80);
+        }
+    }
+
+    &.secondary {
+        background-color: var(--white-100);
+        color: var(--black-100);
+
+        &:focus {
+            background-color: var(--white-80)
+        }
+    }
+
+    &.outline {
+        background: var(--white-100);
+        color: var(--black-100);
+
+        border: 1px solid var(var(--white-80));
+    }
+
+    &.small {
+        font-size: 12px;
+        padding: 4px 8px;
+        height: 36px;
+        width: 240px;
+    }
+
+    &.medium {
+        font-size: 14px;
+        padding: 6px 12px;
+        height: 44px;
+        width: 240px;
+    }
+
+    &.large {
+        font-size: 16px;
+        padding: 8px 16px;
+        height: 52px;
+        width: 240px;
+    }
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -1,0 +1,12 @@
+.card-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--white-100);
+    // background-color: var(--card-action-bg, #f0f0f0);
+    border-radius: 14px;
+    height: 61px;
+    width: 100%;
+    // box-shadow: var(--card-action-shadow, 0 2px 4px rgba(0, 0, 0, 0.1));
+}

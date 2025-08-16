@@ -1,0 +1,6 @@
+<section class="flex gap-x-4 h-[40px] mt-4  {{classes()}}">
+  @for (item of totalDots(); track $index) {
+  <span (click)="clicked($index)" [class.active]="selected() == $index" [class.inactive]="selected() != $index"
+    class="cursor-pointer h-[8px] w-[8px] rounded {{itemClass()}}"></span>
+  }
+</section>

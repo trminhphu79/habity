@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -35,3 +37,54 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+
+
+:root {
+    --main-gradient: linear-gradient(#6B73FF 0%, #454FFF 24%, #000DFF 100%);
+    --black-100: #040415;
+    --white-100: #ffffff;
+    --white-80: #CDCDD0;
+    --blue-80: #6069FF;
+    --blue-60: #888EFF;
+    --blue-100: #3843FF;
+    --ion-color-primary: #3843FF;
+    --ion-color-primary-contrast: #040415;
+
+
+    ion-button {
+        --border-radius: 30px !important;
+        border-radius: 30px !important;
+
+
+        // transition: opacity 0.3s ease, background-color 0.3s ease !important;
+
+        // &.primary {
+        //     background: var(--blue-100) !important;
+        //     color: var(--white-100) !important;
+
+        //     &:focus {
+        //         background: var(--blue-80) !important;
+        //     }
+        // }
+
+        // &.secondary {
+        //     background-color: var(--white-100);
+        //     color: var(--black-100);
+
+        //     &:focus {
+        //         background-color: var(--white-80)
+        //     }
+        // }
+
+        // &.outline {
+        //     background: var(--white-100);
+        //     color: var(--black-100);
+
+        //     border: 1px solid var(var(--white-80));
+        // }
+
+    }
+}
+
+body {}

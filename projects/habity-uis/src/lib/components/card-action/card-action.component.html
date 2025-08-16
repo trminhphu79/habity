@@ -1,3 +1,11 @@
-<p>
-  card-action works!
-</p>
+<section class="card-action {{classes()}}">
+  <section>
+    <ng-content select="[left]"></ng-content>
+  </section>
+  <section>
+    <ng-content select="[center]"></ng-content>
+  </section>
+  <section>
+    <ng-content select="[right]"></ng-content>
+  </section>
+</section>
