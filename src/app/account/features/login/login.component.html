@@ -18,7 +18,10 @@
     <ion-item>
       <ion-input formControlName="password" type="password" label="Password" labelPlacement="floating"
         placeholder="Enter your password">
-        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+        <ion-input-password-toggle color="dark" slot="end"
+          [style.visibility]="loginForm.get('password')?.value ? 'visible' : 'hidden'">
+          >
+        </ion-input-password-toggle>
       </ion-input>
     </ion-item>
 
