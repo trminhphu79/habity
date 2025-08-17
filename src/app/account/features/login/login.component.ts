@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   login() {
     // console.log("storge: ", this.storge
     if (this.loginForm.invalid) {
-      this.showAlert.set(true)
+      this.showAlert.set(true);
       return;
     }
 
@@ -76,5 +76,9 @@ export class LoginComponent implements OnInit {
 
   create() {
     console.log("Move to create account...")
+  }
+
+  onSubmit() {
+    console.log("onSubmit...˘")
   }
 }

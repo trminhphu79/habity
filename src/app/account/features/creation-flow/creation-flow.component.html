@@ -12,17 +12,17 @@
   <form [formGroup]="creationForm" style="padding: 16px;">
     @switch (currentStep()) {
     @case (1){
-    <ng-container *ngTemplateOutlet="habitsTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="genderTemplate"></ng-container>
     }
     @case (2){
-    <ng-container *ngTemplateOutlet="genderTemplate"></ng-container>
+    <ng-container *ngTemplateOutlet="habitsTemplate"></ng-container>
     }
     @default {
     <ng-container *ngTemplateOutlet="inputNameTemplate"></ng-container>
     }
     }
     <ng-template #inputNameTemplate>
-      <section [@slideInOut] class="w-full h-full">
+      <section class="w-full h-full">
         <ion-item>
           <ion-input formControlName="name" type="text" label="Name" labelPlacement="floating"
             placeholder="Enter your name">
@@ -38,8 +38,18 @@
 
 
     <ng-template #genderTemplate>
-      <section [@slideInOut] class="w-full h-full">
-        Gender template
+      <section class="flex flex-col mt-4">
+        <span class="font-semibold text-md">
+          Choose your gender
+        </span>
+      </section>
+      <section class="mt-4 w-full h-full flex gap-6 flex-wrap justify-between">
+        @for (item of gendersMetadata(); track $index) {
+        <section class="w-[160px] h-[102px] habit-card-item flex flex-col items-center justify-center gap-4">
+          <img [src]="item.thumbnailUrl" width="40" />
+          <span class="fold-normal text-sm">{{item.label}}</span>
+        </section>
+        }
       </section>
     </ng-template>
 
@@ -52,7 +62,7 @@
           You may add more habits later
         </span>
       </section>
-      <section [@slideInOut] class="mt-4 w-full h-full flex gap-6 flex-wrap justify-between">
+      <section class="mt-4 w-full h-full flex gap-6 flex-wrap justify-between">
         @for (item of habitsMetadata(); track $index) {
         <section class="w-[160px] h-[102px] habit-card-item flex flex-col items-center justify-center gap-4">
           <img [src]="item.thumbnailUrl" width="40" />

@@ -7,7 +7,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgTemplateOutlet } from '@angular/common';
 import { slideInAnimation } from '@shared/animations/slide';
 import { CardMetadata } from '../../data-access/types';
-import { HABITS_METADATA } from '../../data-access/constants';
+import { GENGERS_METADATA, HABITS_METADATA } from '../../data-access/constants';
 
 @Component({
   selector: 'hbt-creation-flow',
@@ -38,14 +38,21 @@ export class CreationFlowComponent implements OnInit {
     gender: new FormControl(0),
   })
 
-  readonly habitsMetadata = signal<Array<CardMetadata>>(HABITS_METADATA)
+  readonly habitsMetadata = signal<Array<CardMetadata>>(HABITS_METADATA);
+  readonly gendersMetadata = signal<Array<CardMetadata>>(GENGERS_METADATA);
+  
   readonly currentStep = signal(0);
   constructor() { }
 
   ngOnInit() { }
 
   back() {
-    this.router.navigateByUrl('/onboarding');
+    if (this.currentStep() == 0) {
+      this.router.navigateByUrl('/onboarding');
+      return;
+    }
+
+    this.currentStep.set(this.currentStep() - 1)
   }
 
   nextStep() {

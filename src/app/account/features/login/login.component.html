@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form style="margin-top: 16px; padding: 0 14px" [formGroup]="loginForm">
+  <form style="margin-top: 16px; padding: 0 14px" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-item>
       <ion-input formControlName="email" type="email" label="Email" labelPlacement="floating"
         placeholder="Enter your email"></ion-input>
@@ -25,6 +25,8 @@
       </ion-input>
     </ion-item>
 
+    <button type="submit" aria-hidden="true" tabindex="-1"></button>
+
     <div class="pl-4 mt-4">
       <label role="button" class="flex items-center gap-x-2 cursor-pointer">
         <span class="text-sm text-gray-400  hover:text-gray-500 hover:underline" (click)="forgotPassword()">I forgot my
@@ -39,7 +41,8 @@
         </span>
 
       </ion-button>
-      <ion-button [disabled]="pauseSpinner()" (click)="login()" shape="round" size="medium" color="primary">
+      <ion-button type="submit" [disabled]="pauseSpinner()" (click)="login()" shape="round" size="medium"
+        color="primary">
         @if(pauseSpinner()){
         <ion-spinner></ion-spinner>
         } @else {

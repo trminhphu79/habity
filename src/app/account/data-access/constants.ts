@@ -42,3 +42,16 @@ export const HABITS_METADATA: Array<CardMetadata> = [
         thumbnailUrl: 'assets/images/sleep.png'
     },
 ]
+
+export const GENGERS_METADATA: Array<CardMetadata> = [
+    {
+        label: 'Male',
+        id: 'male',
+        thumbnailUrl: 'assets/images/male.png'
+    },
+    {
+        label: 'Female',
+        id: 'female',
+        thumbnailUrl: 'assets/images/female.png'
+    }
+] 
