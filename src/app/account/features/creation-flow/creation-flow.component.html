@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <form [formGroup]="creationForm" style="padding:16px;">
+  <form [formGroup]="creationForm" style="padding: 16px;">
     @switch (currentStep()) {
     @case (1){
     <ng-container *ngTemplateOutlet="habitsTemplate"></ng-container>
@@ -44,7 +44,15 @@
     </ng-template>
 
     <ng-template #habitsTemplate>
-      <section [@slideInOut] class="w-full h-full flex gap-6 flex-wrap justify-evenly">
+      <section class="flex flex-col mt-4">
+        <span class="font-semibold text-md">
+          Choose your first habits
+        </span>
+        <span class="font-normal text-sm text-gray-400">
+          You may add more habits later
+        </span>
+      </section>
+      <section [@slideInOut] class="mt-4 w-full h-full flex gap-6 flex-wrap justify-between">
         @for (item of habitsMetadata(); track $index) {
         <section class="w-[160px] h-[102px] habit-card-item flex flex-col items-center justify-center gap-4">
           <img [src]="item.thumbnailUrl" width="40" />
