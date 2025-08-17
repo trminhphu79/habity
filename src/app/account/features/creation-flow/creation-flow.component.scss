@@ -1,0 +1,29 @@
+.floating-action {
+    position: absolute;
+    bottom: calc(16px + var(--ion-safe-area-bottom));
+}
+
+.habit-card-item {
+    border: 1px solid var(--white-10);
+    border-radius: 12px;
+    background-color: var(--white-100);
+}
+
+ion-content {
+    --background: var(--white-50) !important;
+    background: var(--white-50) !important;
+}
+
+ion-toolbar {
+    --background: var(--white-100);
+    background: var(--white-100);
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: var(--white-50) !important;
+        background: var(--white-50) !important;
+        border: none !important;
+        --border-color: var(--white-50)
+    }
+}

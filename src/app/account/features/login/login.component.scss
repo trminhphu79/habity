@@ -5,6 +5,8 @@
 ion-content {
     --background: var(--white-100) !important;
     background: var(--white-100) !important;
+    color: var(--black-100) !important;
+    --color: var(--black-100) !important;
 }
 
 ion-header {
@@ -16,4 +18,6 @@ ion-header {
     --min-height: 80px;
 }
 
-ion-toolbar {}
+ion-toolbar {
+    --border-color: var(--white-80) !important;
+}

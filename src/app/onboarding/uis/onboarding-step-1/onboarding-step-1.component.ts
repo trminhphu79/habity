@@ -11,11 +11,16 @@ import { slideInAnimation } from '@shared/animations/slide';
       <img src="assets/images/onboarding-step1.png" width="340" height="337" />
     </section>
   </section>
-  <section class="description">
-    <span class="text-[44px] font-bold block">Create</span>
-    <span class="text-[44px] font-bold">Good Habits</span>
-    <span class="text-lg block">Change your life by slowly adding new health habits and sticking to them.</span>
-  </section></section>`,
+  <section class="text-white">
+    <span class="text-[40px] font-bold leading-11">
+      Create
+      <span class="block">
+        Good Habits
+      </span>
+    </span>
+    <div class="text-lg mt-2">Change your life by slowly adding new health habits and sticking to them.</div>
+  </section
+  ></section>`,
   styleUrls: ['./onboarding-step-1.component.scss'],
   animations: [slideInAnimation],
 })

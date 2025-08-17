@@ -7,6 +7,5 @@ export enum OnboardingStepEnum {
 export enum LoginProviderEnum {
     Email = 'email',
     Google = 'google',
-    Facebook = 'facebook',
-    Apple = 'apple',
+    Facebook = 'facebook'
 }

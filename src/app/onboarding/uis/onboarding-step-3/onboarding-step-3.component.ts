@@ -8,10 +8,13 @@ import { slideInAnimation } from '@shared/animations/slide';
      <section class="relative w-full pt-8">
     <img src="assets/images/onboarding-step3.png" height="265" />
   </section>
-  <section class="description">
-    <span class="text-[44px] font-bold block">Stay Together</span>
-    <span class="text-[44px] font-bold">and Strong</span>
-    <span class="text-lg block">Find friends to discuss common topics. Complete challenges together.</span>
+  <section class="mt-8 text-white">
+    <span class="text-[40px] font-bold leading-11 ">Stay Together
+      <span class="block">
+        and Strong
+      </span>
+    </span>
+    <div class="text-lg block  mt-2">Find friends to discuss common topics. Complete challenges together.</div>
   </section>
    </section>
  `,

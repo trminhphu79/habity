@@ -6,7 +6,7 @@ export const ROUTERS = {
     ACCOUNT: 'account',
     SHELL: 'shell',
     ROOT: '',
-    LOGIN: 'account/login',
-    SIGNUP: 'account/sign-up',
-    CREATION_FLOW: 'account/creation-flow',
+    LOGIN: 'login',
+    SIGNUP: 'sign-up',
+    CREATION_FLOW: 'creation-flow',
 }

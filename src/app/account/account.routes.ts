@@ -14,12 +14,10 @@ const routes: Routes = [
     },
     {
         path: ROUTERS.SIGNUP,
-        pathMatch: 'full',
         loadComponent: () => import('./features/sign-up/sign-up.component').then(m => m.SignUpComponent),
     },
     {
         path: ROUTERS.CREATION_FLOW,
-        pathMatch: 'full',
         canMatch: [authCanActiveGuard],
         loadComponent: () => import('./features/creation-flow/creation-flow.component').then(m => m.CreationFlowComponent),
     },

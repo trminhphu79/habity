@@ -7,6 +7,7 @@ import { skip, timer } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { OnboardingActionsComponent } from '../../uis/onboarding-actions/onboarding-actions.component';
 import { Router } from '@angular/router';
+import { ROUTERS } from '@shared/constants/router.constant';
 
 
 @Component({
@@ -44,13 +45,12 @@ export class OnboardingFlowComponent {
   }
 
   private autoChangeStep() {
-    timer(0, 3000)
+    timer(0, 4000)
       .pipe(
         skip(1),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe(() => {
-        console.log('Auto changing step...');
         const nextStep = this.currentStep() + 1;
         if (nextStep > OnboardingStepEnum.Third) {
           this.currentStep.set(OnboardingStepEnum.First);
@@ -79,23 +79,13 @@ export class OnboardingFlowComponent {
   }
 
   protected loginWith(provider: LoginProviderEnum) {
-    console.log(`Logging in with ${provider}...`);
     switch (provider) {
       case LoginProviderEnum.Email:
-        console.log('Logging in with Email...');
-        this.router.navigate(['/account'], { queryParams: { provider: LoginProviderEnum.Email } });
+        this.router.navigateByUrl('account/login?provider=email');
         break;
       case LoginProviderEnum.Google:
-        console.log('Logging in with Google...');
-        // Implement Google login logic here
         break;
       case LoginProviderEnum.Facebook:
-        console.log('Logging in with Facebook...');
-        // Implement Facebook login logic here
-        break;
-      case LoginProviderEnum.Apple:
-        console.log('Logging in with Apple...');
-        // Implement Apple login logic here
         break;
     }
   }

@@ -7,7 +7,7 @@ import { slideInAnimation } from '@shared/animations/slide';
   template: `
   <section [@slideInOut]>
     <section  class="relative w-full h-[355px]  pt-8" >
-    <section class="w-full mt-2 px-4">
+    <section class="w-full mt-2 px-4 text-white">
       <div class="mb-1">
         <label>Challenges</label>
       </div>
@@ -35,10 +35,13 @@ import { slideInAnimation } from '@shared/animations/slide';
        </section>
     </section>
   </section>
-  <section class="description">
-    <span class="text-[44px] font-bold block">Create</span>
-    <span class="text-[44px] font-bold">Good Habits</span>
-    <span class="text-lg block">Everyday you become one step closer to your goal. Don’t give up!</span>
+  <section class="text-white mt-4">
+    <span class="text-[40px] font-bold leading-11 ">Track
+     <span class="block"> 
+       Your Progress
+     </span>
+    </span>
+    <div class="text-lg block  mt-2">Everyday you become one step closer to your goal. Don’t give up!</div>
   </section>
   </section>
 `,

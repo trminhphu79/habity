@@ -1,13 +1,51 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar class="px-4 ">
     <div class="flex flex-row w-full gap-x-4 h-[62px] items-center justify-start">
       <lib-icon-button (onClick)="back()">
         <ion-icon name="chevron-back-outline" color="#040415"></ion-icon>
       </lib-icon-button>
-      <span class="text-[22px] font-bold"> Continue with E-mail</span>
+      <span class="text-[22px] font-semibold"> Continue with E-mail</span>
     </div>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <h1>Hello</h1>
+  <form style="margin-top: 16px; padding: 0 14px" [formGroup]="loginForm">
+    <ion-item>
+      <ion-input formControlName="email" type="email" label="Email" labelPlacement="floating"
+        placeholder="Enter your email"></ion-input>
+    </ion-item>
+    <br />
+    <ion-item>
+      <ion-input formControlName="password" type="password" label="Password" labelPlacement="floating"
+        placeholder="Enter your password">
+        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+
+    <div class="pl-4 mt-4">
+      <label role="button" class="flex items-center gap-x-2 cursor-pointer">
+        <span class="text-sm text-gray-400  hover:text-gray-500 hover:underline" (click)="forgotPassword()">I forgot my
+          password</span>
+      </label>
+    </div>
+
+    <section class="form-actions flex flex-col gap-y-2 mt-8">
+      <ion-button [disabled]="pauseSpinner()" (click)="create()" shape="round" size="medium" color="light" fill="clear">
+        <span class="text-[var(--ion-color-primary)] font-semibold text-sm">
+          Don’t have account? Let’s create!
+        </span>
+
+      </ion-button>
+      <ion-button [disabled]="pauseSpinner()" (click)="login()" shape="round" size="medium" color="primary">
+        @if(pauseSpinner()){
+        <ion-spinner></ion-spinner>
+        } @else {
+        Next
+        }
+      </ion-button>
+    </section>
+  </form>
 </ion-content>
+
+<ion-alert [isOpen]="showAlert()" header="Failed!" message="Invalid email or password. Please try again!"
+  [buttons]="alertActions()" (didDismiss)="showAlert.set(false)"></ion-alert>

@@ -4,12 +4,21 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { provideAnimations } from "@angular/platform-browser/animations"
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { importProvidersFrom } from '@angular/core';
+import { Drivers } from '@ionic/storage';
 
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular({ mode: 'ios', rippleEffect: true, hardwareBackButton: true, statusTap: true }),
+    provideIonicAngular({ mode: 'ios', rippleEffect: false, hardwareBackButton: true, statusTap: false }),
     provideRouter(routes, withPreloading(PreloadAllModules), withViewTransitions()),
-    provideAnimations()
+    provideAnimations(),
+    importProvidersFrom([
+      IonicStorageModule.forRoot({
+        name: "__michaeldude",
+        driverOrder: [Drivers.SecureStorage, Drivers.IndexedDB, Drivers.LocalStorage]
+      })
+    ])
   ],
 });

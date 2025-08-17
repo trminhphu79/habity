@@ -1,3 +1,64 @@
-<p>
-  creation-flow works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar class="px-4 ">
+    <div class="flex flex-row w-full gap-x-4 h-[62px] items-center justify-start">
+      <lib-icon-button (onClick)="back()">
+        <ion-icon name="chevron-back-outline" color="#040415"></ion-icon>
+      </lib-icon-button>
+      <span class="text-[22px] font-semibold">Create Account</span>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form [formGroup]="creationForm" style="padding:16px;">
+    @switch (currentStep()) {
+    @case (1){
+    <ng-container *ngTemplateOutlet="habitsTemplate"></ng-container>
+    }
+    @case (2){
+    <ng-container *ngTemplateOutlet="genderTemplate"></ng-container>
+    }
+    @default {
+    <ng-container *ngTemplateOutlet="inputNameTemplate"></ng-container>
+    }
+    }
+    <ng-template #inputNameTemplate>
+      <section [@slideInOut] class="w-full h-full">
+        <ion-item>
+          <ion-input formControlName="name" type="text" label="Name" labelPlacement="floating"
+            placeholder="Enter your name">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="surname" type="text" label="Surname" labelPlacement="floating"
+            placeholder="Enter your surname">
+          </ion-input>
+        </ion-item>
+      </section>
+    </ng-template>
+
+
+    <ng-template #genderTemplate>
+      <section [@slideInOut] class="w-full h-full">
+        Gender template
+      </section>
+    </ng-template>
+
+    <ng-template #habitsTemplate>
+      <section [@slideInOut] class="w-full h-full flex gap-6 flex-wrap justify-evenly">
+        @for (item of habitsMetadata(); track $index) {
+        <section class="w-[160px] h-[102px] habit-card-item flex flex-col items-center justify-center gap-4">
+          <img [src]="item.thumbnailUrl" width="40" />
+          <span class="fold-normal text-sm">{{item.label}}</span>
+        </section>
+        }
+      </section>
+    </ng-template>
+  </form>
+</ion-content>
+<ion-footer [translucent]="false">
+  <ion-toolbar class="px-4">
+    <ion-button expand="block" shape="round" size="medium" (click)="nextStep()">
+      Next
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
